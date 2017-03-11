@@ -1,5 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const App = require('./ClientApp');
+const Index = require('./index');
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById('app'));
