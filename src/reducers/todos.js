@@ -1,4 +1,4 @@
-const todo = (state, action) => {
+const todo = (state={}, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -12,7 +12,8 @@ const todo = (state, action) => {
       }
 
       return {
-        state,
+        id: state.id,
+        text: state.text,
         completed: !state.completed
       };
     default:

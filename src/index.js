@@ -13,7 +13,7 @@ const Index = React.createClass({
       <Provider store={store}>
         <Router history={hashHistory}>
           <Route path='/'>
-            <IndexRoute component={App}/>
+            <IndexRoute component={App} />
           </Route>
         </Router>
       </Provider>

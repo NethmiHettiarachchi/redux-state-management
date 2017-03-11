@@ -1,7 +1,7 @@
 {
   "name": "redux-state-management",
   "version": "1.0.0",
-  "description": "A two day workshop on a complete intro to React",
+  "description": "A tech-talk on redux state management",
   "main": "index.js",
   "scripts": {
     "lint": "semistandard",
@@ -50,15 +50,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/btholt/complete-intro-to-react.git"
+    "url": "git+https://github.com/NethmiHettiarachchi/redux-state-management.git"
   },
   "keywords": [
     "react",
-    "workshop",
     "intro",
     "redux"
   ],
   "bugs": {
-    "url": "https://github.com/btholt/complete-intro-to-react/issues"
+    "url": "https://github.com/NethmiHettiarachchi/redux-state-management/issues"
   }
 }
