@@ -27,20 +27,22 @@ describe('todos reducer', () => {
       completed: false,
       id: 0
     }]});
-
-    xexpect(
-      todosReducer([
+    expect(
+      todosReducer({todos:[
         {
           text: 'Run the tests',
           completed: false,
           id: 0
         }
-      ], {
+      ]}, {
         type: ADD_TODO,
-        text: 'Use Redux',
-        id: 1
+        value: {
+          text: 'Use Redux',
+          id: 1
+        }
       })
-    ).to.deep.equal([
+    ).to.deep.equal({
+      todos:[
       {
         text: 'Run the tests',
         completed: false,
@@ -50,10 +52,11 @@ describe('todos reducer', () => {
         completed: false,
         id: 1
       }
-    ]);
+    ]
+    });
 
-    xexpect(
-      todosReducer([
+    expect(
+      todosReducer({todos:[
         {
           text: 'Run the tests',
           completed: false,
@@ -63,12 +66,14 @@ describe('todos reducer', () => {
           completed: false,
           id: 1
         }
-      ], {
+      ]}, {
         type: ADD_TODO,
-        text: 'Fix the tests',
-        id: 2
+        value: {
+          text: 'Fix the tests',
+          id: 2
+        }
       })
-    ).to.deep.equal([
+    ).to.deep.equal({todos:[
       {
         text: 'Run the tests',
         completed: false,
@@ -82,12 +87,12 @@ describe('todos reducer', () => {
         completed: false,
         id: 2
       }
-    ]);
+    ]});
   });
 
   xit('should handle TOGGLE_TODO', () => {
     expect(
-      todosReducer([
+      todosReducer({todos:[
         {
           text: 'Run the tests',
           completed: false,
@@ -97,20 +102,21 @@ describe('todos reducer', () => {
           completed: false,
           id: 0
         }
-      ], {
+      ]}, {
         type: TOGGLE_TODO,
-        id: 1
+        value: 1
       })
-    ).to.deep.equal([
-      {
-        text: 'Run the tests',
-        completed: true,
-        id: 1
-      }, {
-        text: 'Use Redux',
-        completed: false,
-        id: 0
-      }
-    ]);
+    ).to.deep.equal({toods: [
+         {
+            completed: true,
+          id: 1,
+          text: "Run the tests"
+        },
+        {
+          completed: false,
+          id: 0,
+         text: "Use Redux"
+        }
+    ]});
   });
 });

@@ -20,6 +20,7 @@ const todosReducer = (state = initialState, action) => {
       return Object.assign({}, state, {todos: todoAry});
     }
     case TOGGLE_TODO: {
+      console.log('todo toggle hits');
       let todoAry = Object.assign([], state.todos);
 
       for (let i = 0; i < todoAry.length; i++) {
