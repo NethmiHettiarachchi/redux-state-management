@@ -1,25 +1,54 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Todo from './Todo';
+import { connect } from 'react-redux';
+import { toggleTodo } from '../actions/index';
 
-const TodoList = ({ todos, onTodoClick }) => (
-  <ul>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => onTodoClick(todo.id)}
-      />
-    )}
-  </ul>
-);
+const mapStateToProps = (state) => ({
+  todos: state.todosReducer.todos,
+  visibilityFilter: state.visibilityFilter
+});
 
-TodoList.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => {
+      dispatch(toggleTodo(id));
+    }
+  };
 };
 
-export default TodoList;
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+const getToDos = (todos, visibilityFilter) => {
+  if (visibilityFilter.SHOW_ALL) return todos;
+  else if (visibilityFilter.SHOW_ACTIVE) return todos.filter((todo) => {return todo.completed !== true });
+  else if (visibilityFilter.SHOW_COMPLETED) return todos.filter((todo) => {return todo.completed !== false });
+  else return todos;
+};
+
+const TodoList = ({
+  todos,
+  onTodoClick,
+  visibilityFilter
+}) => {
+  let todosToShow = getToDos(todos, visibilityFilter);
+  return (
+    <ul>
+      {todosToShow.map(todo =>
+        <Todo
+          key={todo.id}
+          todo={todo}
+          onTodoClick={() => onTodoClick(todo.id)}
+        />
+      )}
+    </ul>
+  );
+};
+
+const {arrayOf, object, func } = React.PropTypes;
+
+TodoList.propTypes = {
+  todos: arrayOf(object),
+  onTodoClick: func
+};
+
+export default connector(TodoList);

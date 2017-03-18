@@ -2,16 +2,16 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
-import reducer from './reducers';
-const { Router, Route, IndexRoute, hashHistory } = require('react-router');
+import rootReducer from './reducers/index';
+const { Router, Route, IndexRoute, hashHistory, browserHistory } = require('react-router');
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 const Index = React.createClass({
   render () {
     return (
       <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
           <Route path='/'>
             <IndexRoute component={App} />
           </Route>
@@ -21,4 +21,4 @@ const Index = React.createClass({
   }
 });
 
-module.exports = Index;
+export default Index;

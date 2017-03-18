@@ -3,6 +3,4 @@ node_modules/
 /public
 .idea
 .eslintcache
-coverage
-.nyc_output
 .DS_Store

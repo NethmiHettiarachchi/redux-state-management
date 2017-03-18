@@ -1,5 +1,5 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Index = require('./index');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Index from './index';
 
-ReactDOM.render(<Index />, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById('container'));

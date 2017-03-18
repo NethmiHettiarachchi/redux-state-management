@@ -1,26 +1,17 @@
 {
-  "name": "redux-state-management",
+  "name": "react-hmr-example",
   "version": "1.0.0",
-  "description": "A tech-talk on redux state management",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --progress --inline --hot",
     "lint": "semistandard",
     "fix": "semistandard --fix",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "test": "mocha './src/test/**/*.js' --require babel-register"
   },
-  "author": "Nethmi Hettiarachchi <hettiarachchi.nethmi@yahoo.com>",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "0.9.1",
-    "express": "4.13.4",
-    "lodash": "4.6.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-redux": "^4.4.0",
-    "react-router": "^2.0.0",
-    "redux": "^3.3.1"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.2",
@@ -46,18 +37,18 @@
     "react-addons-test-utils": "^0.14.7",
     "semistandard": "^10.0.0",
     "sinon": "^1.17.3",
-    "webpack": "^1.12.13"
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.4.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NethmiHettiarachchi/redux-state-management.git"
-  },
-  "keywords": [
-    "react",
-    "intro",
-    "redux"
-  ],
-  "bugs": {
-    "url": "https://github.com/NethmiHettiarachchi/redux-state-management/issues"
+  "dependencies": {
+    "axios": "0.9.1",
+    "express": "4.13.4",
+    "lodash": "4.6.1",
+    "node": "0.0.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "react-router": "^2.0.0",
+    "redux": "^3.3.1"
   }
 }

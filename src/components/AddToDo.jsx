@@ -1,8 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodoAction } from '../actions/index';
+const { func } = React.PropTypes;
 
-let AddTodo = ({ dispatch }) => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addTodo: (id) => {
+      dispatch(addTodoAction(id));
+    }
+  };
+};
+
+const connector = connect(null, mapDispatchToProps);
+
+const AddTodo = ({
+  addTodo
+}) => {
   let input;
 
   return (
@@ -12,7 +25,7 @@ let AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return;
         }
-        dispatch(addTodo(input.value));
+        addTodo(input.value);
         input.value = '';
       }}>
         <input ref={node => {
@@ -25,6 +38,9 @@ let AddTodo = ({ dispatch }) => {
     </div>
   );
 };
-AddTodo = connect()(AddTodo);
 
-export default AddTodo;
+AddTodo.propTypes = {
+  addTodo: func
+};
+
+export default connector(AddTodo);

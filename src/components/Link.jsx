@@ -1,14 +1,21 @@
 import React from 'react';
-const { bool, node, func } = React.PropTypes;
+import { connect } from 'react-redux';
+import { setVisibilityFilter } from '../actions';
+const { func } = React.PropTypes;
 
-const Link = ({
-  active,
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onClick: () => {
+    dispatch(setVisibilityFilter(ownProps.filter));
+  }
+});
+
+const connector = connect(null, mapDispatchToProps);
+
+const LinkTo = ({
   children,
   onClick
 }) => {
-  if (active) {
-    return <span>{children}</span>;
-  }
 
   return (
     <a href='#'
@@ -22,10 +29,8 @@ const Link = ({
   );
 };
 
-Link.propTypes = {
-  active: bool.isRequired,
-  children: node.isRequired,
+LinkTo.propTypes = {
   onClick: func.isRequired
 };
 
-export default Link;
+export default connector(LinkTo);
