@@ -1,10 +1,7 @@
 Example webpack config using React and HMR
 ---
 
-This is an example repo for the [Using Webpack's Hot Module Replacement with
-React][blog-link] tutorial.
-
-[blog-link]: http://matthewlehner.net/react-hot-module-replacement-with-webpack/
+This is an example repo for redux state management with Webpack's Hot Module Replacement
 
 To run:
 

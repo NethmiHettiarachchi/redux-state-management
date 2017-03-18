@@ -1,13 +1,8 @@
 import React from 'react';
-import Footer from './Footer';
-import AddTodo from './AddToDo';
-import TodoList from './TodoList';
 
 const App = () => (
   <div>
-    <AddTodo />
-    <TodoList />
-    <Footer />
+    <h1> Hello React redux</h1>
   </div>
 );
 
