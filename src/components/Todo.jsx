@@ -1,12 +1,10 @@
 import React from 'react';
 
 const Todo = ({
-  onTodoClick,
   todo
 }) => {
   return (
     <li
-      onClick={() => onTodoClick(todo.id)}
       style={{
         textDecoration: todo.completed ? 'line-through' : 'none'
       }}
@@ -16,10 +14,9 @@ const Todo = ({
   );
 };
 
-const { func, object } = React.PropTypes;
+const { object } = React.PropTypes;
 
 Todo.propTypes = {
-  onTodoClick: func.isRequired,
   todo: object.isRequired
 };
 
