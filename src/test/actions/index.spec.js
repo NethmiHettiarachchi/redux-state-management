@@ -20,10 +20,10 @@ describe('todo actions', () => {
     expect(addTodoAction('Use Redux')).to.deep.equal(expectedObj);
   });
 
-  it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
-    expect(setVisibilityFilter('active')).to.deep.equal({
+  it('setVisibilityFilter should create SET_VISIBILITY_FILTER action-SHOW_ALL', () => {
+    expect(setVisibilityFilter('SHOW_ALL')).to.deep.equal({
       type: SET_VISIBILITY_FILTER,
-      value: 'active'
+      value: 'SHOW_ALL'
     });
   });
 
