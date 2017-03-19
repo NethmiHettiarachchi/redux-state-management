@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import rootReducer from './reducers/index';
-const { Router, Route, IndexRoute, hashHistory, browserHistory } = require('react-router');
+const { Router, Route, IndexRoute, browserHistory } = require('react-router');
 
 const store = createStore(rootReducer);
 

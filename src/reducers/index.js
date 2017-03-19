@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import {todos, todosReducer} from './todos';
-import visibilityFilter from './visibilityFilter';
+import {todosReducer} from './todos';
 
 const rootReducer = combineReducers({
-  todosReducer,
-  visibilityFilter
+  todosReducer
 });
 
 export default rootReducer;
