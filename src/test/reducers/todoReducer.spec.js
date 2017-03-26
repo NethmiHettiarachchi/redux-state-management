@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 import {todosReducer} from '../../reducers/todos';
-import {ADD_TODO, TOGGLE_TODO}  from '../../actions/index';
+import {ADD_TODO, TOGGLE_TODO} from '../../actions/index';
 import deepFreeze from 'deep-freeze';
 
 import { expect } from 'chai';
@@ -20,7 +20,7 @@ describe('todos reducer', () => {
     deepFreeze(initialState);
     let newState = todosReducer(initialState, {
       type: ADD_TODO,
-      value:{
+      value: {
         text: 'Run the tests',
         id: 0
       }
@@ -33,7 +33,7 @@ describe('todos reducer', () => {
       }]
     };
     expect(newState).to.deep.equal(nextState);
-    let state = {todos:[
+    let state = {todos: [
       {
         text: 'Run the tests',
         completed: false,
@@ -42,14 +42,14 @@ describe('todos reducer', () => {
     ]};
     deepFreeze(state);
     expect(todosReducer(state, {
-        type: ADD_TODO,
-        value: {
-          text: 'Use Redux',
-          id: 1
-        }
-      })
+      type: ADD_TODO,
+      value: {
+        text: 'Use Redux',
+        id: 1
+      }
+    })
     ).to.deep.equal({
-      todos:[
+      todos: [
         {
           text: 'Run the tests',
           completed: false,
@@ -61,7 +61,7 @@ describe('todos reducer', () => {
         }
       ]
     });
-    let state2 = {todos:[
+    let state2 = {todos: [
       {
         text: 'Run the tests',
         completed: false,
@@ -82,23 +82,23 @@ describe('todos reducer', () => {
         }
       })
     ).to.deep.equal({todos:
-      [ { completed: false, id: 0, text: 'Run the tests' },
+    [ { completed: false, id: 0, text: 'Run the tests' },
         { completed: false, id: 1, text: 'Use Redux' },
-        { completed: false, id: 2, text: 'Fix the tests' } ] } );
+        { completed: false, id: 2, text: 'Fix the tests' } ] });
   });
   it('should handle TOGGLE_TODO', () => {
     let state3 = { todos:
-      [ { completed: false, id: 0, text: 'Run the tests' },
+    [ { completed: false, id: 0, text: 'Run the tests' },
         { completed: false, id: 1, text: 'Use Redux' } ] };
     let expectState = { todos:
-      [ { completed: false, id: 0, text: 'Run the tests' },
+    [ { completed: false, id: 0, text: 'Run the tests' },
         { completed: true, id: 1, text: 'Use Redux' } ] };
 
     deepFreeze(state3);
     expect(todosReducer(state3, {
-        type: TOGGLE_TODO,
-        value: 1
-      })
+      type: TOGGLE_TODO,
+      value: 1
+    })
     ).to.deep.equal(expectState);
   });
 });

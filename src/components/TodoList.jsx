@@ -20,8 +20,8 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 const getToDos = (todos, visibilityFilter) => {
   if (visibilityFilter.SHOW_ALL) return todos;
-  else if (visibilityFilter.SHOW_ACTIVE) return todos.filter((todo) => {return !todo.completed });
-  else if (visibilityFilter.SHOW_COMPLETED) return todos.filter((todo) => {return todo.completed });
+  else if (visibilityFilter.SHOW_ACTIVE) return todos.filter((todo) => { return !todo.completed; });
+  else if (visibilityFilter.SHOW_COMPLETED) return todos.filter((todo) => { return todo.completed; });
   else return todos;
 };
 

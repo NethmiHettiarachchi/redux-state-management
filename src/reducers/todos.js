@@ -18,8 +18,8 @@ const todosReducer = (state = initialState, action) => {
         text: text,
         completed: false
       };
-      let todoAry = Object.assign([], state.todos);
-      todoAry = todoAry.concat([todo]);
+      let todoObj = Object.assign({}, state);
+      let todoAry = todoObj.todos.concat([todo]);
       console.log('====== next state ======');
       console.log(Object.assign({}, state, {todos: todoAry}));
       return Object.assign({}, state, {todos: todoAry});
@@ -29,11 +29,15 @@ const todosReducer = (state = initialState, action) => {
       console.log(state);
       deepFreeze(state);
       let todoAry = Object.assign([], state.todos);
-      let todoObj = todoAry.filter((todo) => todo.id === action.value)[0];
-      let newTodoObj = Object.assign({}, todoObj, {completed: !todoObj.completed});
-      todoAry = sortBy(todoAry.filter((todo) => todo.id !== action.value).concat([newTodoObj]), 'id');
-      console.log('====== next state ======');
+
+      todoAry =  todoAry.map(todo => {
+        if (todo.id !== action.value) {
+          return todo;
+        }
+        return Object.assign({}, todo, {completed: !todo.completed});
+      });
       let nextState = Object.assign({}, state, {todos: todoAry});
+      console.log('====== next state ======');
       console.log(nextState);
       return nextState;
     }

@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 import {visibilityFilter} from '../../reducers/visibilityFilter';
-import {SET_VISIBILITY_FILTER}  from '../../actions/index';
+import {SET_VISIBILITY_FILTER} from '../../actions/index';
 import deepFreeze from 'deep-freeze';
 
 import { expect } from 'chai';

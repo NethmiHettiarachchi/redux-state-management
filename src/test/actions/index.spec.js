@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import {addTodoAction,
   setVisibilityFilter,
-  toggleTodo}  from '../../actions/index';
+  toggleTodo} from '../../actions/index';
 import {ADD_TODO,
   SET_VISIBILITY_FILTER,
-  TOGGLE_TODO}  from '../../actions/index';
+  TOGGLE_TODO} from '../../actions/index';
 
 import { expect } from 'chai';
 

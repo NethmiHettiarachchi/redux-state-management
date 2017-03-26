@@ -1,11 +1,13 @@
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import rootReducer from './reducers/index';
 const { Router, Route, IndexRoute, hashHistory, browserHistory } = require('react-router');
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, compose(
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f
+));
 
 const Index = React.createClass({
   render () {

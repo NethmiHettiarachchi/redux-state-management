@@ -30,4 +30,4 @@ const visibilityFilter = (state = initialState, action) => {
       return state;
   }
 };
-module.exports = {visibilityFilter} ;
+module.exports = {visibilityFilter};
